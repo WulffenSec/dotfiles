@@ -26,7 +26,7 @@ if [ -x "$(command -v pacman)" ]; then
 elif [ -x "$(command -v apt)" ]; then
     alias update='sudo apt update && sudo apt upgrade'
 elif [ -x "$(command -v dnf)" ]; then
-    echo "Placeholder"
+    alias update='sudo dnf update'
 else
     echo "Fail to find package manager"
 fi
@@ -42,7 +42,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias mkdir='mkdir -pv'
 alias find='fdfind --hidden'
-alias cat='bat --color=always'
+alias cat='batcat --color=always'
 alias diff='diff --color=auto'
 alias grep='rg --color=always --hidden'
 alias ip='ip --color=auto'
