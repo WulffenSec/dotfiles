@@ -14,12 +14,12 @@
 # colorscript
 #colorscript -r
 
-# PS1 Mod
-PS1='[\u@\h \W]\$ '
+# PS1 Modded
+PS1="\[$(tput bold)\]\[\033[38;5;118m\]\u\[$(tput sgr0)\]\[\033[38;5;255m\]@\[$(tput sgr0)\]\[\033[38;5;118m\]\h\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;255m\]\A\[$(tput sgr0)\] - \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;118m\]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;255m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')\[$(tput sgr0)\]\n\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;118m\][\[$(tput sgr0)\]\[\033[38;5;255m\]\w\[$(tput sgr0)\]\[\033[38;5;118m\]]\[$(tput sgr0)\] \[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;118m\][\[$(tput sgr0)\]\[\033[38;5;255m\]\$?\[$(tput sgr0)\]\[\033[38;5;118m\]]\[$(tput sgr0)\]\n\[$(tput sgr0)\]\[$(tput bold)\]\[\033[38;5;118m\]>>\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
 # History
 HISTCONTROL=ignoreboth
-HISTTIMEFORMAT="%d/%m/%Y - %T "
+HISTTIMEFORMAT="%m/%d/%Y - %T "
 
 # Path inclusion
 export PATH=~/.local/bin:$PATH
