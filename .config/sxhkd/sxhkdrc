@@ -60,7 +60,7 @@ super + F5
 
 ## Freecad
 super + F6
-    freecad
+    flatpak run org.freecadweb.FreeCAD 
 
 ## OpenSCAD
 super + F7

@@ -38,6 +38,7 @@ mod = "mod4"
 mod1 = "mod1"
 mod2 = "control"
 mod3 = "shift" 
+
 # Automatic floating dialogs
 @hook.subscribe.client_new
 def floating_dialogs(window):

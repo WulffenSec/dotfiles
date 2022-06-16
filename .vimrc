@@ -111,6 +111,7 @@ nnoremap <C-f> :NERDTreeFind<CR>
 call plug#begin('~/.vim/plugged')
 Plug 'powerline/powerline'
 Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tmhedberg/SimpylFold'
 Plug 'preservim/nerdtree'
