@@ -53,6 +53,8 @@ alias ip='ip --color=auto'
 alias ssh='kitty +kitten ssh'
 alias myip='dog +short myip.opendns.com @resolver1.opendns.com'
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias df='df -Thx tmpfs'
+alias du='ncdu'
 
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
