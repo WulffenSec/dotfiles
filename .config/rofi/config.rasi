@@ -44,22 +44,22 @@ configuration {
   	click-to-exit: true;
   	max-history-size: 25;
   	combi-hide-mode-prefix: false;
-  	cache-dir: ;
+  	cache-dir: "~/.cache/rofi/";
   	window-thumbnail: false;
   	drun-use-desktop-cache: false;
   	drun-reload-desktop-cache: false;
   	normalize-match: false;
   	steal-focus: false;
-  	application-fallback-icon: ;
+  	application-fallback-icon: "";
   	pid: "/run/user/1000/rofi.pid";
-  	display-window: ;
-  	display-windowcd: ;
-  	display-run: ;
-  	display-ssh: ;
-  	display-drun: ;
-  	display-combi: ;
-  	display-keys: ;
-  	display-filebrowser: ;
+  	display-window: "window";
+  	display-windowcd: "windowcd";
+  	display-run: "run";
+  	display-ssh: "ssh";
+  	display-drun: "drun";
+  	display-combi: "combi";
+  	display-keys: "keys";
+  	display-filebrowser: "filebrowser";
   	kb-primary-paste: "Control+V,Shift+Insert";
   	kb-secondary-paste: "Control+v,Insert";
   	kb-clear-line: "Control+w";
@@ -80,14 +80,13 @@ configuration {
   	kb-accept-custom-alt: "Control+Shift+Return";
   	kb-accept-alt: "Shift+Return";
   	kb-delete-entry: "Shift+Delete";
-  	kb-mode-next: "Shift+Right,Control+Tab";
-  	kb-mode-previous: "Shift+Left,Control+ISO_Left_Tab";
+  	kb-mode-next: "Shift+Right";
+  	kb-mode-previous: "Shift+Left";
   	kb-mode-complete: "Control+l";
   	kb-row-left: "Control+Page_Up";
   	kb-row-right: "Control+Page_Down";
-  	kb-row-up: "Up,Control+p,ISO_Left_Tab";
+  	kb-row-up: "Up,Control+p";
   	kb-row-down: "Down,Control+n";
-  	kb-row-tab: "Tab";
   	kb-page-prev: "Page_Up";
   	kb-page-next: "Page_Down";
   	kb-row-first: "Home,KP_Home";
@@ -134,17 +133,13 @@ configuration {
   	me-select-entry: "MousePrimary";
   	me-accept-entry: "MouseDPrimary";
   	me-accept-custom: "Control+MouseDPrimary";
-
-  timeout {
-      action: "kb-cancel";
-      delay:  0;
-  }
-  filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
-  }
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+    filebrowser {
+        directories-first: true;
+        sorting-method:    "name";
+    }
 }
-//@theme "/home/wulffen/.local/share/rofi/themes/base16-nord.rasi"
-//@theme "/home/wulffen/.local/share/rofi/themes/base16-synth-midnight-dark.rasi"
-//@theme "/home/wulffen/.local/share/rofi/themes/base16-material-darker.rasi"
-@theme "/usr/share/rofi/themes/solarized_alternate.rasi"
+@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
