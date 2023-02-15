@@ -19,6 +19,11 @@ export PATH=~/.npm-global/bin:$PATH
 export PATH=~/anaconda3/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 
+# Quick server
+server() {
+    python3 -m http.server
+}
+
 # Update system
 update() {
     if [ -x "$(command -v pacman)" ]; then
@@ -26,6 +31,8 @@ update() {
         exitCode=$?
         if [[ exitCode -eq 0 ]]; then
           paru
+        else
+            echo "Fail to upgrade system"
         fi
     elif [ -x "$(command -v apt)" ]; then
         sudo apt update
