@@ -49,3 +49,4 @@ bspc rule -a kitty desktop='^1' focus=on follow=on
 # Floating
 bspc rule -a kdeconnect.app state=floating center=true
 bspc rule -a kcalc state=floating center=true
+bspc rule -a gnome-calculator state=floating center=true
