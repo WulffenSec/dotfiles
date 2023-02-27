@@ -97,6 +97,12 @@ keys.extend([
     Key([mod], "F2", lazy.spawn("flatpak run io.freetubeapp.FreeTube"))
     ])
 
+keys.extend([
+    Key([], "XF86AudioMute", lazy.spawn("sh -c $HOME/scripts/muteVol.sh")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("sh -c $HOME/scripts/lowerVol.sh")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("sh -c $HOME/scripts/raiseVol.sh"))
+    ])
+
 layouts = [
     layout.Columns(
         border_focus="FFFFFF",
@@ -148,6 +154,8 @@ screens = [
                     widget.Spacer(length=10),
                     widget.StatusNotifier(),
                     widget.Systray(),
+                    widget.Spacer(length=10),
+                    widget.Volume(fmt="󰕾 {}"),
                     widget.Spacer(length=10),
                     widget.Clock(format="%Y-%m-%d %a %H:%M")
                 ],
