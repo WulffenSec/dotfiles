@@ -109,7 +109,7 @@ layouts = [
     layout.Floating(
         border_focus="FFFFFF",
         border_normal="222222",
-        border_width=2
+        border_width=4
         )
 ]
 
@@ -183,7 +183,10 @@ floating_layout = layout.Floating(
             Match(wm_class="ssh-askpass"),  # ssh-askpass
             Match(title="branchdialog"),  # gitk
             Match(wm_class="Pinentry-gtk-2"),  # GPG key password entry
-        ]
+        ],
+        border_focus="FFFFFF",
+        border_normal="222222",
+        border_width=2
     )
 
 auto_fullscreen = True
