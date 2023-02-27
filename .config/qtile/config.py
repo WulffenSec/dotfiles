@@ -29,7 +29,9 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 import subprocess
 
-subprocess.run(["sh", "-c", "$HOME/.config/autostart.sh"])
+@hook.subscribe.startup
+def func():
+    subprocess.run(["sh", "-c", "$HOME/.config/autostart.sh"])
 
 mod = "mod4"
 
@@ -53,16 +55,16 @@ keys = [
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "mod1"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "mod1"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-
-    Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Run a command using rofi")
+    Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Run a command using rofi"),
+    Key([mod, "mod1"], "Return", lazy.spawn("pcmanfm"), desc="Run a command using rofi")
 ]
 
 groups = [Group(i) for i in "123456789"]
 groups = [
-        Group(name="1", label=""),
+        Group(name="1", label="", matches=[Match(wm_class=["kitty"])]),
         Group(name="2", label="󰖟", matches=[Match(wm_class=["firefox"])]),
         Group(name="3", label="", matches=[Match(wm_class=["FreeTube"])]),
-        Group(name="4", label=""),
+        Group(name="4", label="", matches=[Match(wm_class=["Pcmanfm"])]),
         Group(name="5", label=""),
         Group(name="6", label="󱕴", matches=[Match(wm_class=["KeePassXC"])]),
         Group(name="7", label="󱊞"),
@@ -88,6 +90,12 @@ for i in groups:
                 ),
             ]
         )
+
+# F Shortcuts
+keys.extend([
+    Key([mod], "F1", lazy.spawn("firefox")),
+    Key([mod], "F2", lazy.spawn("flatpak run io.freetubeapp.FreeTube"))
+    ])
 
 layouts = [
     layout.Columns(
@@ -135,7 +143,7 @@ screens = [
                     widget.Spacer(length=10),
                     widget.Memory(format="󰍛 {MemUsed:.0f}{mm}/{MemTotal:.0f}{mm} {MemPercent:.0f}%", measure_mem="G"),
                     widget.Spacer(length=10),
-                    widget.Net(format="󰈀 {down} / {up}"),
+                    widget.Net(format=" {down} /  {up}"),
                     widget.Spacer(length=10),
                     widget.StatusNotifier(),
                     widget.Systray(),
