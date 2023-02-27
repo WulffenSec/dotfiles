@@ -103,7 +103,8 @@ layouts = [
         border_normal="222222",
         border_on_single=True,
         border_width=2,
-        margin=12
+        margin=[10, 10, 20, 10],
+        margin_on_single=[10, 10, 20, 10]
         ),
     layout.Floating(
         border_focus="FFFFFF",
@@ -155,7 +156,7 @@ screens = [
                 background="222222",
                 border_width=2,
                 border_color="FFFFFF",
-                margin=10
+                margin=[20, 10, 10, 10]
             ),
         ),
     ]
