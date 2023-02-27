@@ -1,12 +1,8 @@
 #! /bin/sh
 
 # Autostarts
-pgrep -x lxqt-policykit-agent > /dev/nulll || lxqt-policykit-agent &
 pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x polybar > /dev/null || polybar bspwm &
-pgrep -x picom > /dev/null || picom &
-pgrep -x nitrogen > /dev/null || nitrogen --restore &
-pgrep -x dunst > /dev/null || dunst &
 sh -c ~/.config/autostart.sh
 
 # Settings

@@ -24,9 +24,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from libqtile import bar, layout, widget
+from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
+import subprocess
+
+subprocess.run(["sh", "-c", "$HOME/.config/autostart.sh"])
 
 mod = "mod4"
 
@@ -57,15 +60,15 @@ keys = [
 groups = [Group(i) for i in "123456789"]
 groups = [
         Group(name="1", label=""),
-        Group(name="2", label="󰖟"),
+        Group(name="2", label="󰖟", matches=[Match(wm_class=["firefox"])]),
         Group(name="3", label=""),
         Group(name="4", label=""),
         Group(name="5", label=""),
-        Group(name="6", label="󱕴"),
+        Group(name="6", label="󱕴", matches=[Match(wm_class=["KeePassXC"])]),
         Group(name="7", label="󱊞"),
-        Group(name="8", label=""),
-        Group(name="9", label=""),
-        Group(name="0", label="")
+        Group(name="8", label="", matches=[Match(wm_class=["Virt-manager"])]),
+        Group(name="9", label="", matches=[Match(wm_class=["Signal"])]),
+        Group(name="0", label="", matches=[Match(wm_class=["Steam"])])
         ]
 
 for i in groups:
@@ -87,8 +90,18 @@ for i in groups:
         )
 
 layouts = [
-    layout.Columns(),
-    layout.Floating()
+    layout.Columns(
+        border_focus="FFFFFF",
+        border_normal="222222",
+        border_on_single=True,
+        border_width=4,
+        margin=12
+        ),
+    layout.Floating(
+        border_focus="FFFFFF",
+        border_normal="222222",
+        border_width=4
+        )
 ]
 
 widget_defaults = dict(
@@ -103,8 +116,18 @@ screens = [
         Screen(
             top=bar.Bar(
                 [
-                    widget.GroupBox(),
-                    widget.Prompt(),
+                    widget.GroupBox(
+                        active="888888",
+                        inactive="222222",
+                        borderwidth=2,
+                        margin=2,
+                        highlight_method="text",
+                        this_current_screen_border="FFFFFF",
+                        this_screen_border="FFFFFF",
+                        urgent_alert_method="text",
+                        urgent_border="FF0000",
+                        urgent_text="FF0000"
+                        ),
                     widget.WindowName(),
                     widget.Chord(
                         chords_colors={
@@ -135,7 +158,6 @@ follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False
 
-columns_layout = layout.Columns()
 floating_layout = layout.Floating(
         float_rules=[
             *layout.Floating.default_float_rules,
