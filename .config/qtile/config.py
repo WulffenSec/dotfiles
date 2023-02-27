@@ -61,7 +61,7 @@ groups = [Group(i) for i in "123456789"]
 groups = [
         Group(name="1", label=""),
         Group(name="2", label="󰖟", matches=[Match(wm_class=["firefox"])]),
-        Group(name="3", label=""),
+        Group(name="3", label="", matches=[Match(wm_class=["FreeTube"])]),
         Group(name="4", label=""),
         Group(name="5", label=""),
         Group(name="6", label="󱕴", matches=[Match(wm_class=["KeePassXC"])]),
@@ -94,13 +94,13 @@ layouts = [
         border_focus="FFFFFF",
         border_normal="222222",
         border_on_single=True,
-        border_width=4,
+        border_width=2,
         margin=12
         ),
     layout.Floating(
         border_focus="FFFFFF",
         border_normal="222222",
-        border_width=4
+        border_width=2
         )
 ]
 
@@ -117,7 +117,7 @@ screens = [
             top=bar.Bar(
                 [
                     widget.GroupBox(
-                        active="888888",
+                        active="666666",
                         inactive="222222",
                         borderwidth=2,
                         margin=2,
@@ -128,19 +128,26 @@ screens = [
                         urgent_border="FF0000",
                         urgent_text="FF0000"
                         ),
+                    widget.Spacer(length=10),
                     widget.WindowName(),
-                    widget.Chord(
-                        chords_colors={
-                            "launch": ("#ff0000", "#ffffff"),
-                        },
-                        name_transform=lambda name: name.upper(),
-                    ),
+                    widget.Spacer(length=10),
+                    widget.CPU(format="󰻠 {freq_current}GHz {load_percent}%"),
+                    widget.Spacer(length=10),
+                    widget.Memory(format="󰍛 {MemUsed:.0f}{mm}/{MemTotal:.0f}{mm} {MemPercent:.0f}%", measure_mem="G"),
+                    widget.Spacer(length=10),
+                    widget.Net(format="󰈀 {down} / {up}"),
+                    widget.Spacer(length=10),
                     widget.StatusNotifier(),
                     widget.Systray(),
-                    widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                    widget.QuickExit(),
+                    widget.Spacer(length=10),
+                    widget.Clock(format="%Y-%m-%d %a %H:%M")
                 ],
                 24,
+                opacity=0.7,
+                background="222222",
+                border_width=2,
+                border_color="FFFFFF",
+                margin=10
             ),
         ),
     ]
@@ -166,7 +173,7 @@ floating_layout = layout.Floating(
             Match(wm_class="maketag"),  # gitk
             Match(wm_class="ssh-askpass"),  # ssh-askpass
             Match(title="branchdialog"),  # gitk
-            Match(title="pinentry"),  # GPG key password entry
+            Match(wm_class="Pinentry-gtk-2"),  # GPG key password entry
         ]
     )
 
