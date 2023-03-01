@@ -35,7 +35,10 @@ keys = [
         # Terminal, App launcher, Filemanager
         Key([mod], "Return", lazy.spawn("kitty"), desc="Launch terminal"),
         Key([mod, "control"], "Return", lazy.spawn("rofi -show drun"), desc="Run a command using rofi"),
-        Key([mod, "mod1"], "Return", lazy.spawn("pcmanfm"), desc="Run a command using rofi")
+        Key([mod, "mod1"], "Return", lazy.spawn("pcmanfm"), desc="Open Filemanager"),
+        # Poweroff and reboot
+        Key([mod, "mod1"], "p", lazy.spawn("systemctl poweroff"), desc="Shutdown the computer"),
+        Key([mod, "mod1"], "o", lazy.spawn("systemctl reboot"), desc="Reboot the computer")
         ]
 
 # F Shortcuts
@@ -62,7 +65,7 @@ groups = [
         Group(name="7", label="󱊞"),
         Group(name="8", label="", matches=[Match(wm_class=["Virt-manager"])]),
         Group(name="9", label="", matches=[Match(wm_class=["Signal"])]),
-        Group(name="0", label="", matches=[Match(wm_class=["Steam"])])
+        Group(name="0", label="", matches=[Match(wm_class=["Steam"])], layout="tile")
         ]
 
 # Switching workspace, move windows to a workspace
@@ -95,8 +98,16 @@ layouts = [
         border_focus="FFFFFF",
         border_normal="222222",
         border_width=4
-        )
-]
+        ),
+    layout.Tile(
+        border_focus="FFFFFF",
+        border_normal="222222",
+        border_on_single=True,
+        border_width=2,
+        margin=[10, 10, 20, 10],
+        margin_on_single=[10, 10, 20, 10],
+        ratio=0.70
+        )]
 
 # Options for every widget
 widget_defaults = dict(
@@ -110,6 +121,8 @@ extension_defaults = widget_defaults.copy()
 screens = [
         Screen(
             top=bar.Bar([
+                widget.CurrentLayoutIcon(scale=0.5),
+                widget.Spacer(length=10),
                 widget.GroupBox(
                     active="666666",
                     inactive="222222",
@@ -125,18 +138,21 @@ screens = [
                 widget.Spacer(length=10),
                 widget.WindowName(),
                 widget.Spacer(length=10),
+                widget.DF(format="󰋊 {uf}{m}|{r:.0f}%", visible_on_warn=False),
+                widget.Spacer(length=10),
                 widget.CPU(format="󰻠 {freq_current}GHz {load_percent}%"),
                 widget.Spacer(length=10),
                 widget.Memory(format="󰍛 {MemUsed:.0f}{mm}/{MemTotal:.0f}{mm} {MemPercent:.0f}%", measure_mem="G"),
                 widget.Spacer(length=10),
-                widget.Net(format=" {down} /  {up}"),
+                widget.Net(format=" {down} |  {up}"),
                 widget.Spacer(length=10),
                 widget.StatusNotifier(),
                 widget.Systray(),
                 widget.Spacer(length=10),
                 widget.Volume(fmt="󰕾 {}"),
                 widget.Spacer(length=10),
-                widget.Clock(format="%Y-%m-%d %a %H:%M")
+                widget.Clock(format="%Y-%m-%d %a %H:%M"),
+                widget.Spacer(length=10)
                 ],
                 24,
                 opacity=0.7,
