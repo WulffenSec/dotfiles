@@ -53,11 +53,11 @@ keys = [
             desc='Shutdown Qtile'),
         # Terminal, App launcher, Filemanager
         Key([mod], 'Return', lazy.spawn('kitty'),
-            desc='Launch terminal'),
+            lazy.group['1'].toscreen(), desc='Launch terminal'),
         Key([mod, 'control'], 'Return', lazy.spawn('rofi -show drun'),
             desc='Run a command using rofi'),
         Key([mod, 'mod1'], 'Return', lazy.spawn('pcmanfm'),
-            desc='Open Filemanager'),
+            lazy.group['4'].toscreen(), desc='Open Filemanager'),
         # Poweroff and reboot
         Key([mod, 'mod1'], 'p', lazy.spawn('systemctl poweroff'),
             desc='Shutdown the computer'),
@@ -67,8 +67,10 @@ keys = [
 
 # F Shortcuts
 keys.extend([
-    Key([mod], 'F1', lazy.spawn('firefox')),
-    Key([mod], 'F2', lazy.spawn('flatpak run io.freetubeapp.FreeTube'))
+    Key([mod], 'F1', lazy.spawn('firefox'),
+        lazy.group['2'].toscreen()),
+    Key([mod], 'F2', lazy.spawn('flatpak run io.freetubeapp.FreeTube'),
+        lazy.group['3'].toscreen())
     ])
 
 # Audio Keys
