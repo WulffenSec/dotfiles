@@ -12,6 +12,8 @@ export PS1="\[$(tput bold)\]\[\033[31m\][\[$(tput sgr0)\]\[\033[0m\]\u\[$(tput s
 # History
 HISTCONTROL=ignoreboth
 HISTTIMEFORMAT="%m/%d/%Y - %T "
+HISTSIZE=10000
+HISTFILESIZE=10000
 
 # Path inclusion
 export PATH=$PATH:$HOME/.local/bin
