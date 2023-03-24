@@ -62,7 +62,9 @@ keys = [
         Key([mod, 'mod1'], 'p', lazy.spawn('systemctl poweroff'),
             desc='Shutdown the computer'),
         Key([mod, 'mod1'], 'o', lazy.spawn('systemctl reboot'),
-            desc='Reboot the computer')
+            desc='Reboot the computer'),
+        Key([mod], 'f', lazy.window.toggle_floating(),
+            desc='Toggle floating on the window.')
         ]
 
 # F Shortcuts
@@ -221,6 +223,7 @@ floating_layout = layout.Floating(
             Match(wm_class='ssh-askpass'),  # ssh-askpass
             Match(title='branchdialog'),  # gitk
             Match(wm_class='Pinentry-gtk-2'),  # GPG key password entry
+            Match(wm_class='gnome-calculator')
         ],
         border_focus='FFFFFF',
         border_normal='222222',

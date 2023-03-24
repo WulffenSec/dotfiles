@@ -114,10 +114,10 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 " Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
+"autocmd VimEnter * NERDTree | wincmd p
 
 " Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+"autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " Lightline
 let g:lightline = {
@@ -139,33 +139,17 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" VimWiki
-set nocompatible
-let g:vimwiki_list = [{'path': '~/Notes/'}]
-let g:vimwiki_hl_headers = 1
-
-function! VimwikiLinkHandler(link)
-    let link = a:link
-    if link =~# '^file:\/\/'
-        let link = split(link, 'file:\/\/')[0]
-        if expand('%:p') != '^$HOME/Notes/'
-            let link = '$HOME/Notes/' . link
-            echo link
-        endif
-        if link =~# 'png$'
-            "execute '!feh ' . link
-            execute '!term-image --cli -s 0.3 ' . link
-        else
-            return 0
-        endif
-    endif
-endfunction
-
 " Codeium
-let g:codeium_filetypes = {
-    \ "bash": v:true,
-    \ "python": v:true,
-    \ }
+"let g:codeium_filetypes = {
+"    \ "bash": v:true,
+"    \ "python": v:true,
+"    \ "go": v:true,
+"    \ }
+"let g:codeium_disable_bindings = 1
+"imap <script><silent><nowait><expr> <C-g> codeium#Accept()
+"imap <C-,>   <Cmd>call codeium#CycleCompletions(1)<CR>
+"imap <C-.>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+"imap <C-x>   <Cmd>call codeium#Clear()<CR>
 
 " Plugins
 call plug#begin('~/.vim/plugged')
@@ -178,6 +162,5 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
 Plug 'lifepillar/vim-solarized8'
-Plug 'vimwiki/vimwiki'
-Plug 'Exafunction/codeium.vim'
+"Plug 'Exafunction/codeium.vim'
 call plug#end()
