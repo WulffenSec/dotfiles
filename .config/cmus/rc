@@ -1,0 +1,57 @@
+# Set options.
+
+set output_plugin=alsa
+set dsp.alsa.device=default
+set mixer.alsa.device=default
+set mixer.alsa.channel=Master
+
+# Playback
+
+bind common b player-next
+bind common B player-next-album
+bind common c player-pause
+bind common x player-play
+bind common z player-prev
+bind common Z player-prev-album
+bind common v player-stop
+
+bind common ] vol +0 +1%
+bind common [ vol +1% +0
+bind common + vol +10%
+bind common = vol +10%
+bind common } vol -0 -1%
+bind common { vol -1% -0
+bind common - vol -10%
+
+bind common , seek -1m
+bind common . seek +1m
+
+bind common h seek -5
+bind common l seek +5
+
+bind common left seek -5
+bind common right seek +5
+
+bind common mlb_click_bar player-pause
+bind common mouse_scroll_up_bar seek +5
+bind common mouse_scroll_down_bar seek -5
+
+# Setting toggles
+
+bind common m toggle aaa_mode
+bind common C toggle continue
+bind common M toggle play_library
+bind common o toggle play_sorted
+bind common r toggle repeat
+bind common ^R toggle repeat_current
+bind common t toggle show_remaining_time
+bind common s toggle shuffle
+bind common f toggle follow
+
+# Commands
+
+bind common q quit -i
+bind common ^C echo Type :quit<enter> to exit cmus.
+bind common I echo {}
+
+# note: the single space at the end is intentional
