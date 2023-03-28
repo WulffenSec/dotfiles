@@ -6,7 +6,6 @@
 [[ $- != *i* ]] && return
 
 # PS1 Modded
-
 export PS1="\[$(tput bold)\]\[\033[31m\][\[$(tput sgr0)\]\[\033[0m\]\u\[$(tput sgr0)\]\[\033[31m\]@\[$(tput sgr0)\]\[\033[0m\]\h\[$(tput sgr0)\]\[\033[31m\]][\[$(tput sgr0)\]\[\033[0m\]\w\[$(tput sgr0)\]\[\033[31m\]]\[$(tput sgr0)\]\[\033[0m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')\[$(tput sgr0)\]\[\033[31m\][\[$(tput sgr0)\]\[\033[0m\]\$?\[$(tput sgr0)\]\[\033[31m\]]\[$(tput sgr0)\]\n\[$(tput sgr0)\]\[$(tput bold)\]\[\033[31m\][\[$(tput sgr0)\]\[\033[0m\]\\$\[$(tput sgr0)\]\[\033[31m\]]>>\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
 # History
@@ -22,31 +21,9 @@ export PATH=~/anaconda3/bin:$PATH
 export PATH=$PATH:$HOME/go/bin
 
 # Quick server
+# TODO: Needs redo.
 server() {
     python3 -m http.server
-}
-
-# Update system
-update() {
-    if [ -x "$(command -v pacman)" ]; then
-        sudo pacman -Syu
-        exitCode=$?
-        if [[ exitCode -eq 0 ]]; then
-          paru
-        else
-            echo "Fail to upgrade system"
-        fi
-    elif [ -x "$(command -v apt)" ]; then
-        sudo apt update
-        exitCode=$?
-        if [[ exitCode -eq 0 ]]; then
-          sudo apt upgrade
-        fi
-    elif [ -x "$(command -v dnf)" ]; then
-        sudo dnf update
-    else
-        echo "Fail to find package manager"
-    fi
 }
 
 penv() {
@@ -83,6 +60,9 @@ if [ -x "$(command -v kitty)" ]; then
         alias ssh='kitty +kitten ssh'
     fi
 fi
+
+# Shell options
+shopt -s extglob
 
 # GPG
 export GPG_TTY=$(tty)
