@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # PS1 Modded
-export PS1="\[$(tput bold)\]\[\033[31m\][\[$(tput sgr0)\]\[\033[0m\]\u\[$(tput sgr0)\]\[\033[31m\]@\[$(tput sgr0)\]\[\033[0m\]\h\[$(tput sgr0)\]\[\033[31m\]][\[$(tput sgr0)\]\[\033[0m\]\w\[$(tput sgr0)\]\[\033[31m\]]\[$(tput sgr0)\]\[\033[0m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')\[$(tput sgr0)\]\[\033[31m\][\[$(tput sgr0)\]\[\033[0m\]\$?\[$(tput sgr0)\]\[\033[31m\]]\[$(tput sgr0)\]\n\[$(tput sgr0)\]\[$(tput bold)\]\[\033[31m\][\[$(tput sgr0)\]\[\033[0m\]\\$\[$(tput sgr0)\]\[\033[31m\]]>>\[$(tput sgr0)\] \[$(tput sgr0)\]"
+export PS1="\[$(tput bold)\]\[\033[31m\][\[$(tput bold)\]\[\033[0m\]\u\[$(tput bold)\]\[\033[31m\]@\[$(tput bold)\]\[\033[0m\]\h\[$(tput bold)\]\[\033[31m\]][\[$(tput bold)\]\[\033[0m\]\w\[$(tput bold)\]\[\033[31m\]]\[$(tput bold)\]\[\033[0m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')\[$(tput bold)\]\[\033[31m\][\[$(tput bold)\]\[\033[0m\]\$?\[$(tput bold)\]\[\033[31m\]]\[$(tput bold)\]\n\[$(tput bold)\]\[$(tput bold)\]\[\033[31m\][\[$(tput bold)\]\[\033[0m\]\\$\[$(tput bold)\]\[\033[31m\]]>>\[$(tput bold)\] \[$(tput bold)\]\[\033[0m\]"
 
 # History
 HISTCONTROL=ignoreboth
