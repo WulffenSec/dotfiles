@@ -64,7 +64,9 @@ keys = [
         Key([mod, 'mod1'], 'o', lazy.spawn('systemctl reboot'),
             desc='Reboot the computer'),
         Key([mod], 'f', lazy.window.toggle_floating(),
-            desc='Toggle floating on the window.')
+            desc='Toggle floating on the window.'),
+        Key([mod, 'control'], 'f', lazy.window.toggle_fullscreen(),
+            desc='Toggle fullscreen on the window.')
         ]
 
 # F Shortcuts
