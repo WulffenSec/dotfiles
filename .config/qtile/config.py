@@ -84,7 +84,9 @@ keys.extend([
     Key([], 'XF86AudioLowerVolume',
         lazy.spawn('sh -c $HOME/scripts/lowerVol.sh')),
     Key([], 'XF86AudioRaiseVolume',
-        lazy.spawn('sh -c $HOME/scripts/raiseVol.sh'))
+        lazy.spawn('sh -c $HOME/scripts/raiseVol.sh')),
+    Key(['mod1'], 'XF86AudioMute',
+        lazy.spawn('sh -c $HOME/scripts/audioSink.sh'))
     ])
 
 # Groups name(for switching) label(for show)
