@@ -40,7 +40,7 @@ penv() {
 }
 
 # Aliases
-alias ls='ls -Ahop --group-directories-first --color=always'
+alias ls='ls -hop --group-directories-first --color=always'
 alias grep='grep --color=always -Hn'
 alias mkdir='mkdir -pv'
 alias diff='diff -r --color=always'
@@ -66,18 +66,3 @@ shopt -s extglob
 
 # GPG
 export GPG_TTY=$(tty)
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/wulffen/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/wulffen/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/wulffen/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/wulffen/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
