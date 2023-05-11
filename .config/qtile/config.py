@@ -108,7 +108,7 @@ groups = [
         Group(name='9', label='',
               matches=[Match(wm_class=['Signal'])]),
         Group(name='0', label='',
-              matches=[Match(wm_class=['Steam'])], layout='tile')
+              matches=[Match(wm_class=['Steam', 'steam'])], layout='tile')
         ]
 
 # Switching workspace, move windows to a workspace
