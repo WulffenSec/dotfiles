@@ -16,8 +16,7 @@ HISTFILESIZE=10000
 
 # Path inclusion
 export PATH=$PATH:$HOME/.local/bin
-export PATH=~/.npm-global/bin:$PATH
-export PATH=~/anaconda3/bin:$PATH
+export PATH=$HOME/.npm-global/bin:$PATH
 export PATH=$PATH:$HOME/go/bin
 
 # Quick server
@@ -26,16 +25,27 @@ server() {
     python3 -m http.server
 }
 
+# Conda evironment
 penv() {
-    if [ -z "$VIRTUAL_ENV" ]; then
-        if [[ -d .env ]]; then
-            source .env/bin/activate
+    if [ -z "$virtual_env" ] || [[ $virtual_env == "False" ]]; then
+        work_directory=$(pwd | rev | cut -d '/' -f1 | rev)
+        if [[ -d $HOME/.anaconda3/envs/$work_directory ]]; then
+            conda activate $work_directory
+            if [[ $? -eq 0 ]]; then
+                virtual_env="True"
+            fi
         else
-            python -m venv .env && source .env/bin/activate
+            conda create -n $work_directory
+            if [[ $? -eq 0 ]]; then
+                conda activate $work_directory
+                if [[ $? -eq 0 ]]; then
+                    virtual_env="True"
+                fi
+            fi
         fi
-    else
-       VIRTUAL_ENV=""
-       deactivate 
+    elif [[ $virtual_env == "True" ]]; then
+       conda deactivate 
+       virtual_env="False"
     fi
 }
 
@@ -67,3 +77,18 @@ shopt -s extglob
 
 # GPG
 export GPG_TTY=$(tty)
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/wulffen/.anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/wulffen/.anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/wulffen/.anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/wulffen/.anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
