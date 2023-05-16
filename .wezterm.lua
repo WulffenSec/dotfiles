@@ -12,6 +12,7 @@ local config = {
     window_decorations = 'NONE',
     window_background_opacity = 0.8,
     term = 'wezterm',
+    audible_bell = 'Disabled',
     keys = {
         {
           key = 'f',
