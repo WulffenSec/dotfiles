@@ -3,6 +3,8 @@ from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 import subprocess
+import os
+
 
 
 @hook.subscribe.startup
@@ -12,10 +14,11 @@ def func():
 
 # Variables
 mod = 'mod4'
+home = os.getenv('HOME')
 wofi = [
     'wofi --xoffset 1500 --insensitive ',
     '--height 1080 --hide-scroll --width 420 ',
-    '--style style.css --term kitty --prompt "Search" --show run'
+    f'--style {home}/.config/wofi/style.css --term kitty --prompt "Search" --show run'
 ]
 
 keys = [
