@@ -5,7 +5,6 @@ end
 
 -- Config
 local config = {
-    enable_wayland = false,
     font = wezterm.font('Hack'),
     font_size = 12.0,
     default_cursor_style = 'BlinkingUnderline',
@@ -22,7 +21,7 @@ local config = {
     },
     colors = {
         foreground = '#FFFFFF',
-        background = '#111111',
+        background = '#000000',
 
         cursor_fg = '#222222',
         cursor_bg = '#888888',
