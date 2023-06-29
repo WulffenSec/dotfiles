@@ -151,6 +151,9 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 "imap <C-.>   <Cmd>call codeium#CycleCompletions(-1)<CR>
 "imap <C-x>   <Cmd>call codeium#Clear()<CR>
 
+" Ale
+let b:ale_fixers = {'python': ['autopep8']}
+
 " Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'tmhedberg/SimpylFold'
