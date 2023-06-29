@@ -141,8 +141,8 @@ layouts = [
         border_normal='222222',
         border_on_single=True,
         border_width=2,
-        margin=[10, 10, 20, 10],
-        margin_on_single=[10, 10, 20, 10]
+        margin=[10, 10, 10, 10],
+        margin_on_single=[10, 10, 10,10]
     ),
     layout.Floating(
         border_focus='FFFFFF',
@@ -154,8 +154,8 @@ layouts = [
         border_normal='222222',
         border_on_single=True,
         border_width=2,
-        margin=[10, 10, 20, 10],
-        margin_on_single=[10, 10, 20, 10],
+        margin=[10, 10, 10, 10],
+        margin_on_single=[10, 10, 10, 10],
         ratio=0.70
     )]
 
@@ -172,12 +172,13 @@ screens = [
     Screen(
         top=bar.Bar([
             widget.CurrentLayoutIcon(scale=0.5),
-            widget.Spacer(length=10),
             widget.GroupBox(
+                    fontsize=16,
                     active='666666',
-                    inactive='222222',
+                    inactive='111111',
                     borderwidth=2,
-                    margin=2,
+                    margin=3,
+                    padding=4,
                     highlight_method='text',
                     this_current_screen_border='FFFFFF',
                     this_screen_border='FFFFFF',
@@ -185,31 +186,26 @@ screens = [
                     urgent_border='FF0000',
                     urgent_text='FF0000'
                     ),
-            widget.Spacer(length=10),
-            widget.WindowName(),
-            widget.Spacer(length=10),
-            widget.DF(format='󰋊 {uf}{m}|{r:.0f}%', visible_on_warn=False),
-            widget.Spacer(length=10),
-            widget.CPU(format='󰻠 {freq_current}GHz {load_percent}%'),
-            widget.Spacer(length=10),
+            widget.Sep(foreground='FFFFFF', linewidth=2, size_percent=100,padding=10),
+            widget.WindowName(padding=4),
+            widget.Sep(foreground='FFFFFF', linewidth=2, size_percent=100,padding=10),
+            widget.DF(format='󰋊 {uf}{m}|{r:.0f}%', visible_on_warn=False, padding=4),
+            widget.CPU(format='󰻠 {freq_current}GHz {load_percent}%', padding=4),
             widget.Memory(
                 format='󰍛 {MemUsed:.0f}{mm}/{MemTotal:.0f}{mm} '
-                + '{MemPercent:.0f}%', measure_mem='G'),
-            widget.Spacer(length=10),
-            widget.Net(format=' {down} |  {up}'),
-            widget.Spacer(length=10),
-            widget.StatusNotifier(),
-            widget.Systray(),
-            widget.Spacer(length=10),
-            widget.Volume(fmt='󰕾 {}'),
-            widget.Spacer(length=10),
-            widget.Clock(format='%Y-%m-%d %a %H:%M'),
-            widget.Spacer(length=10)
+                + '{MemPercent:.0f}%', measure_mem='G', padding=4),
+            widget.Net(format='{down} | {up}', prefix='M', padding=4),
+            widget.Sep(foreground='FFFFFF', linewidth=2, size_percent=100,padding=10),
+            widget.StatusNotifier(padding=4),
+            widget.Volume(fmt='󰕾 {}', padding=4),
+            widget.Clock(format='%Y-%m-%d %a %H:%M', padding=4)
         ],
             30,
-            opacity=0.8,
+            opacity=1,
+            border_width=2,
+            border_color='FFFFFF',
             background='000000',
-            margin=[20, 10, 10, 10]
+            margin=[0, 10, 0, 10]
         ))]
 
 # Drag floating layouts.
