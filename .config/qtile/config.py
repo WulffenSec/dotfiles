@@ -16,9 +16,9 @@ def func():
 mod = 'mod4'
 home = os.getenv('HOME')
 wofi = [
-    'wofi --xoffset 1500 --insensitive ',
-    '--height 1080 --hide-scroll --width 420 ',
-    f'--style {home}/.config/wofi/style.css --term kitty --prompt "Search" --show run'
+    'wofi --insensitive --hide-scroll',
+    '--style $HOME/.config/wofi/style.css', 
+    '--term kitty --prompt "Search"--show run'
 ]
 
 keys = [
@@ -137,25 +137,25 @@ for i in groups:
 # Layout active
 layouts = [
     layout.Columns(
-        border_focus='FFFFFF',
-        border_normal='222222',
+        border_focus='8000FF',
+        border_normal='200040',
         border_on_single=True,
         border_width=2,
-        margin=[10, 10, 10, 10],
-        margin_on_single=[10, 10, 10,10]
+        margin=[10, 10, 20, 10],
+        margin_on_single=[10, 10, 20,10]
     ),
     layout.Floating(
-        border_focus='FFFFFF',
-        border_normal='222222',
+        border_focus='8000FF',
+        border_normal='200040',
         border_width=4
     ),
     layout.Tile(
-        border_focus='FFFFFF',
-        border_normal='222222',
+        border_focus='8000FF',
+        border_normal='200040',
         border_on_single=True,
         border_width=2,
-        margin=[10, 10, 10, 10],
-        margin_on_single=[10, 10, 10, 10],
+        margin=[10, 10, 20, 10],
+        margin_on_single=[10, 10, 20, 10],
         ratio=0.70
     )]
 
@@ -163,7 +163,8 @@ layouts = [
 widget_defaults = dict(
     font='Hack Nerd Font',
     fontsize=14,
-    padding=2
+    padding=2,
+    foreground='8000FF'
 )
 extension_defaults = widget_defaults.copy()
 
@@ -171,41 +172,39 @@ extension_defaults = widget_defaults.copy()
 screens = [
     Screen(
         top=bar.Bar([
-            widget.CurrentLayoutIcon(scale=0.5),
+            #widget.CurrentLayoutIcon(scale=0.5, foreground='8000FF'),
             widget.GroupBox(
                     fontsize=16,
-                    active='666666',
+                    active='400080',
                     inactive='111111',
                     borderwidth=2,
                     margin=3,
                     padding=4,
                     highlight_method='text',
-                    this_current_screen_border='FFFFFF',
-                    this_screen_border='FFFFFF',
+                    this_current_screen_border='8000FF',
+                    this_screen_border='8000FF',
                     urgent_alert_method='text',
                     urgent_border='FF0000',
                     urgent_text='FF0000'
                     ),
-            widget.Sep(foreground='FFFFFF', linewidth=2, size_percent=100,padding=10),
+            widget.Sep(foreground='8000FF', linewidth=2, size_percent=100,padding=10),
             widget.WindowName(padding=4),
-            widget.Sep(foreground='FFFFFF', linewidth=2, size_percent=100,padding=10),
+            widget.Sep(foreground='8000FF', linewidth=2, size_percent=100,padding=10),
             widget.DF(format='󰋊 {uf}{m}|{r:.0f}%', visible_on_warn=False, padding=4),
             widget.CPU(format='󰻠 {freq_current}GHz {load_percent}%', padding=4),
             widget.Memory(
                 format='󰍛 {MemUsed:.0f}{mm}/{MemTotal:.0f}{mm} '
                 + '{MemPercent:.0f}%', measure_mem='G', padding=4),
             widget.Net(format='{down} | {up}', prefix='M', padding=4),
-            widget.Sep(foreground='FFFFFF', linewidth=2, size_percent=100,padding=10),
+            widget.Sep(foreground='8000FF', linewidth=2, size_percent=100,padding=10),
             widget.StatusNotifier(padding=4),
             widget.Volume(fmt='󰕾 {}', padding=4),
             widget.Clock(format='%Y-%m-%d %a %H:%M', padding=4)
         ],
             30,
             opacity=1,
-            border_width=2,
-            border_color='FFFFFF',
             background='000000',
-            margin=[0, 10, 0, 10]
+            margin=[20, 10, 10, 10]
         ))]
 
 # Drag floating layouts.
@@ -230,8 +229,8 @@ floating_layout = layout.Floating(
         Match(wm_class='Pinentry-gtk-2'),  # GPG key password entry
         Match(wm_class='gnome-calculator')
     ],
-    border_focus='FFFFFF',
-    border_normal='222222',
+    border_focus='8000FF',
+    border_normal='200040',
     border_width=2
 )
 
