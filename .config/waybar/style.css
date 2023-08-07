@@ -1,0 +1,40 @@
+* {
+    font-family: Hack Nerd Font;
+    font-size: 16px;
+    background-color: transparent;
+}
+
+#waybar {
+    background-color: #000000;
+    border: 2px solid #FFFFFF;
+    border-radius: 8px;
+}
+
+#workspaces button {
+    padding: 0 5 0 5;
+}
+
+#workspaces button.persistent {
+    color: #666666;
+}
+
+#workspaces button.active {
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+#workspaces button.urgent {
+    background-color: #0000FF;
+    background-color: #eb4d4b;
+}
+
+tooltip {
+    background: #000000;
+    border: 2px solid #FFFFFF;
+    border-radius: 8px;
+}
+
+#custom-cmus,
+#clock {
+    padding: 0 5 0 5;
+}
