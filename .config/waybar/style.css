@@ -24,8 +24,7 @@
 }
 
 #workspaces button.urgent {
-    background-color: #0000FF;
-    background-color: #eb4d4b;
+    color: #FF0000;
 }
 
 tooltip {
