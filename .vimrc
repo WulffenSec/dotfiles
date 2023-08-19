@@ -95,11 +95,10 @@ set t_vb=
 set tm=500
 
 "  Tabs
-nnoremap <leader>tn :tabnew<cr>
-nnoremap <leader>to :tabonly<cr>
-nnoremap <leader>tc :tabclose<cr>
-nnoremap <leader>tm :tabmove
-nnoremap <leader>t<leader> :tabnext
+nnoremap <C-;> :tabnew<cr>
+nnoremap <C-'> :tabclose<cr>
+nnoremap <C-[> :tabprevious<cr>
+nnoremap <C-]> :tabnext<cr>
 
 " Split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -111,13 +110,6 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
-
-" Start NERDTree and put the cursor back in the other window.
-"autocmd VimEnter * NERDTree | wincmd p
-
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-"autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " Lightline
 let g:lightline = {
@@ -138,19 +130,6 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" Codeium
-"let g:codeium_filetypes = {
-"    \ "bash": v:true,
-"    \ "python": v:true,
-"    \ "go": v:true,
-"    \ }
-"let g:codeium_disable_bindings = 1
-"imap <script><silent><nowait><expr> <C-g> codeium#Accept()
-"imap <C-,>   <Cmd>call codeium#CycleCompletions(1)<CR>
-"imap <C-.>   <Cmd>call codeium#CycleCompletions(-1)<CR>
-"imap <C-x>   <Cmd>call codeium#Clear()<CR>
-
 " Ale
 let b:ale_fixers = {'python': ['autopep8']}
 
@@ -165,5 +144,4 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
 Plug 'lifepillar/vim-solarized8'
-"Plug 'Exafunction/codeium.vim'
 call plug#end()
