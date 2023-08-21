@@ -144,4 +144,5 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-startify'
 Plug 'lifepillar/vim-solarized8'
+Plug 'ggandor/vim-srt-sync'
 call plug#end()
