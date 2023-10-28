@@ -39,7 +39,7 @@ penv() {
             PENV=True
         fi
     else
-        "Deactivating virtual environment."
+        echo "Deactivating virtual environment."
         deactivate
         PENV=FALSE
     fi
@@ -49,6 +49,10 @@ wallpaper() {
     sed -i "s|WALLPAPER=.*|WALLPAPER=$1|" $HOME/scripts/autostart.sh
     sed -i "s|WALLPAPER=.*|WALLPAPER=$1|" $HOME/scripts/wallpaper.sh
     sh -c ~/scripts/wallpaper.sh
+}
+
+share() {
+    kdeconnect-cli -n Edge --share "$1"
 }
 
 # Aliases
