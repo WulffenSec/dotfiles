@@ -5,46 +5,29 @@
     //"width": 1280, // Waybar width
     "spacing": 10, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces"],
+    "modules-left": ["hyprland/workspaces"],
     "modules-center": ["custom/cmus"],
     "modules-right": ["cpu", "memory", "disk", "temperature", "pulseaudio", "tray", "clock"],
     // Modules configuration
-    "wlr/workspaces": {
-        "sort-by-number": true,
-        "disable-scroll": true,
-        "all-outputs": false,
-        "format": "{icon}",
+    "hyprland/workspaces": {
+        "persistent-workspaces": {
+            "*": 10
+            },
         "on-scroll-up": "hyprctl dispatch workspace r-1",
         "on-scroll-down": "hyprctl dispatch workspace r+1",
-        "active-only": false,
-        "on-click": "activate",
-        "persistent_workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": [],
-            "7": [],
-            "8": [],
-            "9": [],
-            "10": []
-        },
-        "format-icons": {
-            "1": "",
-            "2": "󰖟",
-            "3": "",
-            "4": "󰌚",
-            "5": "󰮂",
-            "6": "󱕵",
-            "7": "",
-            "8": "󰒋",
-            "9": "󰭹",
-            "10": "󰓓",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        }
+        "format": "{icon}",
+            "format-icons": {
+                "1": "",
+                "2": "󰖟",
+                "3": "",
+                "4": "󰌚",
+                "5": "󰮂",
+                "6": "󱕵",
+                "7": "",
+                "8": "󰒋",
+                "9": "󰭹",
+                "10": "󰓓"
+            }
     },
     "custom/cmus": {
         "format": "♪ {}",
