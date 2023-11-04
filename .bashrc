@@ -88,4 +88,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Restart your shell for the changes to take effect.
+if [[ $(cat $HOME/TODO.md | wc -l) > 1 ]]; then
+    glow $HOME/TODO.md
+fi
