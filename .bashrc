@@ -67,6 +67,7 @@ alias du='ncdu --exclude-kernfs'
 alias reinstall='pacman -Qknq | cut -d " " -f1 | sort -u | sudo pacman -S - --noconfirm --overwrite "*"'
 alias yt-mp3='yt-dlp --extract-audio --audio-format mp3 --audio-quality 0'
 alias ping='ping -c 3'
+alias rsync="bash -e $HOME/scripts/rsync.sh"
 
 source $HOME/.ls_colors.sh
 
