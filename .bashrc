@@ -16,8 +16,8 @@ HISTFILESIZE=10000
 
 # Path inclusion
 export PATH=$PATH:$HOME/.local/bin:$HOME/.npm-global/bin:$HOME/go/bin
-export PATH=$PATH:$HOME/workbench/android/sdk/build-tools/34.0.0:$HOME/workbench/android/sdk/platform-tools
-export PATH=$PATH:$HOME/workbench/android/sdk/emulator:$HOME/workbench/android/cmdline-tools/bin
+export PATH=$PATH:$HOME/android/sdk/build-tools/34.0.0:$HOME/android/sdk/platform-tools
+export PATH=$PATH:$HOME/android/sdk/emulator:$HOME/android/cmdline-tools/bin
 
 # Quick server
 # TODO: Needs redo.
