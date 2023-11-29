@@ -45,7 +45,7 @@
         "spacing": 10
     },
     "clock": {
-    "format": " {:%Y/%m/%d  %R}",
+    "format": " {:%d/%m/%Y  %R}",
     "format-alt": " {:%H:%M}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
