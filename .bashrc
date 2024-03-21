@@ -52,7 +52,7 @@ wallpaper() {
 }
 
 share() {
-    kdeconnect-cli -n Edge --share "$1"
+    kdeconnect-cli -n "$1" --share "$2"
 }
 
 # Aliases
