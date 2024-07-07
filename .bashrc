@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # PS1 Modded
-export PS1="\[$(tput bold)\]\[\033[32m\][\[$(tput bold)\]\[\033[0m\]\u\[$(tput bold)\]\[\033[32m\]@\[$(tput bold)\]\[\033[0m\]\h\[$(tput bold)\]\[\033[32m\]][\[$(tput bold)\]\[\033[0m\]\w\[$(tput bold)\]\[\033[32m\]]\[$(tput bold)\]\[\033[0m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')\[$(tput bold)\]\[\033[32m\][\[$(tput bold)\]\[\033[0m\]\$?\[$(tput bold)\]\[\033[32m\]]\[$(tput bold)\]\n\[$(tput bold)\]\[$(tput bold)\]\[\033[32m\][\[$(tput bold)\]\[\033[0m\]\\$\[$(tput bold)\]\[\033[32m\]]>>\[$(tput bold)\] \[$(tput bold)\]\[\033[0m\]"
+export PS1="\[\033[34m\] » \[\033[0m\]"
 
 # History
 HISTCONTROL=ignoreboth
