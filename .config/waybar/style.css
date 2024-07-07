@@ -9,7 +9,7 @@ window > box {
 	margin-right: 7.5px;
 	margin-top: 5px;
     background: #000000;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #55A4D1;
     border-radius: 8px;
 }
 
@@ -22,8 +22,8 @@ window > box {
 }
 
 #workspaces button.active {
-    color: #000000;
-    background-color: #FFFFFF;
+    color: #FFFFFF;
+    background-color: #55A4D1;
 }
 
 #workspaces button.urgent {
@@ -32,10 +32,19 @@ window > box {
 
 tooltip {
     background: #000000;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #55A4D1;
     border-radius: 8px;
 }
 
+#tray menu {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+#cpu,
+#memory,
+#disk,
+#pulseaudio,
 #custom-cmus,
 #clock {
     padding: 0 5px 0 5px;
