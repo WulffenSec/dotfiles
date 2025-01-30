@@ -9,7 +9,7 @@ window > box {
 	margin-right: 7.5px;
 	margin-top: 5px;
     background: #000000;
-    border: 2px solid #55A4D1;
+    border: 2px solid #1E5277;
     border-radius: 8px;
 }
 
@@ -23,7 +23,7 @@ window > box {
 
 #workspaces button.active {
     color: #FFFFFF;
-    background-color: #55A4D1;
+    background-color: #1E5277;
 }
 
 #workspaces button.urgent {
@@ -32,7 +32,7 @@ window > box {
 
 tooltip {
     background: #000000;
-    border: 2px solid #55A4D1;
+    border: 2px solid #1E5277;
     border-radius: 8px;
 }
 
