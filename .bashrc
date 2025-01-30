@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 # PS1 Modded
-export PS1="\[\033[34m\] » \[\033[0m\]"
+export PS1="\[\033[91m\] » \[\033[0m\]"
 
 # History
 HISTCONTROL=ignoreboth
@@ -18,6 +18,9 @@ HISTFILESIZE=10000
 export PATH=$PATH:$HOME/.local/bin:$HOME/.npm-global/bin:$HOME/go/bin
 export PATH=$PATH:$HOME/android/sdk/build-tools/34.0.0:$HOME/android/sdk/platform-tools
 export PATH=$PATH:$HOME/android/sdk/emulator:$HOME/android/cmdline-tools/bin
+
+# Environment
+source $HOME/.environment.sh
 
 # Quick server
 # TODO: Needs redo.
